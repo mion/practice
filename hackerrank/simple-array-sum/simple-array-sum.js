@@ -20,9 +20,26 @@ function readLine() {
 
 /////////////// ignore above this line ////////////////////
 
+var reduce = function (arr, func, acc) {
+    if (typeof acc === 'undefined') {
+        acc = arr[0];
+    }
+    for (var i = 0; i < arr.length; i++) {
+        acc = func(arr[i], acc);
+    }
+    return acc;
+};
+
 function main() {
     var n = parseInt(readLine());
-    arr = readLine().split(' ');
-    arr = arr.map(Number);
-    console.log(arr);
+    if (n !== 0) {
+        arr = readLine().split(' ');
+        arr = arr.map(Number);
+        var sum = reduce(arr, function (k, acc) {
+            return k + acc;
+        }, 0);
+        console.log(sum);
+    } else {
+        console.log(0);
+    }
 }
