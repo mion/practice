@@ -9,25 +9,11 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #lang racket
-
+(
 (define (fib n)
   (cond [(= 1 n) '(1)]
         [(= 2 n) '(2 1)]
         [else (let ([fib-lst (fib (sub1 n))])
                 (cons (+ (car fib-lst) (car (cdr fib-lst))) fib-lst))]))
 
-(define (fib-not-exceeding n k)
-  (let ([fib-n (fib n)])
-    (if (> (car fib-n) k)
-        (fib (sub1 n))
-        (fib-not-exceeding (add1 n) k))))
-
-(define (sum lst) (foldl + 0 lst))
-
-(define (answer)
-  (sum (filter even? (fib-not-exceeding 1 (* 4 (expt 10 6))))))
-
-
-
-
-
+;; TO FINISH
