@@ -19,7 +19,3 @@
 
 (define (answer n)
   (sum (filter is-multiple-3-or-5? (nats n))))
-
-
-
-
