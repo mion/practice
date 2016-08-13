@@ -21,5 +21,14 @@
         [(even? n) #f]
         [else (empty? (filter (lambda (m) (= 0 (remainder n m))) (cdr(odd-numbers-up-to (sqrt n)))))]))
 
+(define (factors n)
+  (filter (lambda (m) (= 0 (remainder n m))) (map add1 (build-list n values))))
 
-               
+(define (max-of-list lst)
+  (eval (cons 'max lst)))
+
+(define (largest-prime-factor n)
+  (max-of-list (filter prime? (factors n))))
+
+;; STOPPED HERE: this not working even with 512 MB of memory... make it more efficient!
+
